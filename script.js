@@ -6,6 +6,7 @@ function btnEncriptar() {
     mensagem.value = textoEncriptado;
     textArea.value = "";
     mensagem.style.backgroundImage = 'none';
+    mensagem.placeholder = ''; // Remove o placeholder ao criptografar
 }
 
 function encriptar(stringDesencriptada) {
@@ -45,6 +46,8 @@ function copiarTexto() {
     navigator.clipboard.writeText(mensagem.value).then(() => {
         alert("Texto copiado para a área de transferência!");
         mensagem.value = '';
+        mensagem.placeholder = "Nenhuma mensagem encontrada.";
+        mensagem.style.backgroundImage = "url(imagens/pencador.png)";
     }).catch(err => {
         console.error("Erro ao copiar o texto: ", err);
     });
